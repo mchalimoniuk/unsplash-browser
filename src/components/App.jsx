@@ -19,7 +19,7 @@ class App extends Component {
         <Navbar />
         <Switch>
           <Route exact path='/' component ={CollectionsRoute} />
-          <Route path='/sections/:id' component ={CollectionRoute} />
+          <Route path='/collections/:id' component ={CollectionRoute} />
           <Route path='/photos/:id' component ={PhotoRoute} />
         </Switch>
       </div>

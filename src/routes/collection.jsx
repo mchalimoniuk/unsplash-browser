@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PhotoList from '../containers/PhotoList';
 
 class Section extends React.Component {
   constructor(props, context) {
@@ -10,7 +11,7 @@ class Section extends React.Component {
   render() {
     return (
       <div>
-        Widok sekcji
+        <PhotoList />
       </div>
     );
   }
