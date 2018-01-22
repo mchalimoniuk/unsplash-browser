@@ -12,10 +12,6 @@ class PhotoList extends React.Component {
     
   }
 
-  componentDidMount() {
-    this.props.fetchPhotos();
-  }
-
   renderPhotos() {
     return this.props.photos.map(photo => {
       return <PhotoListItem key={photo.id} photo={photo}/>;
