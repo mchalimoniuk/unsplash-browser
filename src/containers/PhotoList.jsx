@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import InfiniteScroll from 'react-infinite-scroller';
 
 import { fetchPhotos } from '../actions/photos';
 import PhotoListItem from '../components/PhotoListItem';
@@ -21,9 +22,16 @@ class PhotoList extends React.Component {
     });
   }
 
+  loadMore() {
+    if(!this.props.fetching) {
+      this.props.fetchPhotos();
+    }
+  }
+
   render() {
+    const loader = <div className="loader" key={0}>Wczytywanie...</div>;
     if(!this.props.photos) {
-      return <div>Wczytywanie...</div>;
+      return loader;
     }
 
     return (
@@ -31,9 +39,14 @@ class PhotoList extends React.Component {
       <div className="row" style={{ marginTop: 20, marginBottom: 30 }}>
         <h1>People</h1>
       </div>
-        <div className="row">
+        <InfiniteScroll
+          className="row"
+          loadMore={this.loadMore.bind(this)}
+          hasMore={true}
+          loader={loader}
+        >
           {this.renderPhotos.bind(this)()}
-        </div>
+        </InfiniteScroll>
       </div>
     );
   }
@@ -41,7 +54,8 @@ class PhotoList extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    photos: state.photos.data
+    photos: state.photos.data,
+    fetching: state.photos.pending
   };
 }
 
