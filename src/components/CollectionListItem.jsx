@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+import CollectionImgPreview from './CollectionImgPreview';
 
 
 class SectionListItem extends React.Component {
@@ -9,6 +12,7 @@ class SectionListItem extends React.Component {
 
   render() {
     const {
+      id,
       title,
       description,
       total_photos,
@@ -19,27 +23,16 @@ class SectionListItem extends React.Component {
     // console.log(this.props.collection);
     
     return (
-      <div className="card mb-3">
-        <h3 className="card-header">{title}</h3>
-        <div className="card-body">
-          <h5 className="card-title">{total_photos} zdjęć</h5>
-          <h6 className="card-subtitle text-muted">Autor: {username}</h6>
+      <div className="card my-4 ">
+        <div className="view overlay hm-white-slight">
+          <CollectionImgPreview images={preview_photos} />
         </div>
-        <img src={preview_photos[0].urls.thumb} alt="Card image" />
-        <div className="card-body">
+        <div className="card-body text-center">
+          <Link to={`/collections/${id}`}>
+            <h4 className="card-title" style={{ marginBottom: 0 }}><strong>{title}</strong></h4>
+          </Link>
+          <h6 style={{ marginBottom: 15 }}>{username}</h6>
           <p className="card-text">{description ? description : 'Brak opisu'}</p>
-        </div>
-        {/* <ul className="list-group list-group-flush">
-          <li className="list-group-item">Cras justo odio</li>
-          <li className="list-group-item">Dapibus ac facilisis in</li>
-          <li className="list-group-item">Vestibulum at eros</li>
-        </ul>
-        <div className="card-body">
-          <a href="#" className="card-link">Card link</a>
-          <a href="#" className="card-link">Another link</a>
-        </div> */}
-        <div className="card-footer text-muted">
-          Ostatnia aktualizacja: {updated_at}
         </div>
       </div>
     );
