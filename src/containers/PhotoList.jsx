@@ -20,7 +20,7 @@ class PhotoList extends React.Component {
 
   loadMore() {
     if(!this.props.fetching) {
-      this.props.fetchPhotos();
+      this.props.fetchPhotos(this.props.collectionId);
     }
   }
 

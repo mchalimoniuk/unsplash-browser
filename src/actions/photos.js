@@ -1,10 +1,12 @@
+import { toJson } from "unsplash-js";
+import unsplash from "../helpers/unsplash";
 import { 
   PHOTOS_FETCH_START,
   PHOTOS_FETCH_SUCCESS,
   PHOTOS_FETCH_ERROR
 } from "../constants/ActionTypes";
 
-export function fetchPhotos() {
+export function fetchPhotos(collectionId) {
   return function(dispatch) {
     const exampleData = [
       {
@@ -570,6 +572,11 @@ export function fetchPhotos() {
   ];
     dispatch({ type: PHOTOS_FETCH_START });
     dispatch(fetchPhotosSuccess(exampleData));
+    // unsplash.collections.getCollectionPhotos(collectionId, 1, 10, 'oldest')
+    //   .then(toJson)
+    //   .then(json => {
+    //       dispatch(fetchPhotosSuccess(json));
+    // });
   }
 }
 

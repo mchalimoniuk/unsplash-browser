@@ -1,8 +1,12 @@
+import { toJson } from "unsplash-js";
+import unsplash from "../helpers/unsplash";
+
 import { 
   FEATURED_COLLECTIONS_FETCH_START,
   FEATURED_COLLECTIONS_FETCH_SUCCESS,
   FEATURED_COLLECTIONS_FETCH_ERROR
 } from "../constants/ActionTypes";
+
 
 export function fetchFeaturedCollections() {
   return function(dispatch) {
@@ -1660,6 +1664,11 @@ export function fetchFeaturedCollections() {
     ];
     dispatch({ type: FEATURED_COLLECTIONS_FETCH_START });
     dispatch(fetchFeaturedCollectionsSuccess(exampleData));
+    // unsplash.collections.listFeaturedCollections(1, 10)
+    //   .then(toJson)
+    //   .then(json => {
+    //       dispatch(fetchFeaturedCollectionsSuccess(json));
+    // });
   }
 }
 

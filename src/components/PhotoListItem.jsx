@@ -16,7 +16,6 @@ class PhotoListItem extends React.Component {
       urls: { small },
       likes
     } = this.props.photo;
-    console.log(this.props.photo);
 
     const style = {
       position: 'relative',
@@ -32,7 +31,7 @@ class PhotoListItem extends React.Component {
     return (
       <div className='col-sm' style={{ padding: 0, marginBottom: 20 }} >
         <div style={style} >
-          <div class='data-overlay'>
+          <div className='data-overlay'>
             <div>
               <p>Pobrano: ???</p>
               <p>Like'ów: {likes}</p>
