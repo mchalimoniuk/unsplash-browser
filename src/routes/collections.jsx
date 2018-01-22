@@ -1,5 +1,6 @@
 import React from 'react';
 
+import CollectionList from '../containers/CollectionList';
 
 class Sections extends React.Component {
   constructor(props, context) {
@@ -10,7 +11,8 @@ class Sections extends React.Component {
   render() {
     return (
       <div>
-        Widok wszystkich sekcji
+        <h1>Widok wszystkich sekcji</h1>
+        <CollectionList />
       </div>
     );
   }

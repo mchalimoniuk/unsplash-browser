@@ -3,8 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 
 import Navbar from './Navbar';
 import PhotoRoute from '../routes/photo';
-import SectionRoute from '../routes/section';
-import SectionsRoute from '../routes/sections';
+import CollectionRoute from '../routes/collection';
+import CollectionsRoute from '../routes/collections';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
@@ -18,8 +18,8 @@ class App extends Component {
       <div className="App">
         <Navbar />
         <Switch>
-          <Route exact path='/' component ={SectionsRoute} />
-          <Route path='/sections/:id' component ={SectionRoute} />
+          <Route exact path='/' component ={CollectionsRoute} />
+          <Route path='/sections/:id' component ={CollectionRoute} />
           <Route path='/photos/:id' component ={PhotoRoute} />
         </Switch>
       </div>
