@@ -3,7 +3,10 @@ import unsplash from "../helpers/unsplash";
 import { 
   PHOTOS_FETCH_START,
   PHOTOS_FETCH_SUCCESS,
-  PHOTOS_FETCH_ERROR
+  PHOTOS_FETCH_ERROR,
+  PHOTO_FETCH_START,
+  PHOTO_FETCH_SUCCESS,
+  PHOTO_FETCH_ERROR
 } from "../constants/ActionTypes";
 
 export function fetchPhotos(collectionId) {
@@ -593,3 +596,106 @@ export function fetchPhotosError(error) {
     payload: error
   };
 }
+
+export function fetchPhoto(photoId) {
+    return function(dispatch) {
+      const exampleData = {
+        "id": "JfolIjRnveY",
+        "created_at": "2017-08-22T22:16:09-04:00",
+        "updated_at": "2017-11-01T13:04:17-04:00",
+        "width": 2848,
+        "height": 4288,
+        "color": "#FEFFFF",
+        "description": null,
+        "urls": {
+            "raw": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9",
+            "full": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE5OTQwfQ&s=0b6d9d9b7a9f069e58936258eca2d551",
+            "regular": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE5OTQwfQ&s=19e4e956baa543627f15bb210827bfe0",
+            "small": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE5OTQwfQ&s=22fade600c7a22197308d5fbf3e382a6",
+            "thumb": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE5OTQwfQ&s=7739cd55ad504d5d382247a7c35be903"
+        },
+        "categories": [],
+        "links": {
+            "self": "https://api.unsplash.com/photos/JfolIjRnveY",
+            "html": "https://unsplash.com/photos/JfolIjRnveY",
+            "download": "https://unsplash.com/photos/JfolIjRnveY/download",
+            "download_location": "https://api.unsplash.com/photos/JfolIjRnveY/download"
+        },
+        "liked_by_user": false,
+        "sponsored": false,
+        "likes": 356,
+        "user": {
+            "id": "7mejgcxfs9A",
+            "updated_at": "2018-01-16T20:50:13-05:00",
+            "username": "senjuti",
+            "name": "Senjuti Kundu",
+            "first_name": "Senjuti",
+            "last_name": "Kundu",
+            "twitter_username": null,
+            "portfolio_url": null,
+            "bio": null,
+            "location": "Montreal",
+            "links": {
+                "self": "https://api.unsplash.com/users/senjuti",
+                "html": "https://unsplash.com/@senjuti",
+                "photos": "https://api.unsplash.com/users/senjuti/photos",
+                "likes": "https://api.unsplash.com/users/senjuti/likes",
+                "portfolio": "https://api.unsplash.com/users/senjuti/portfolio",
+                "following": "https://api.unsplash.com/users/senjuti/following",
+                "followers": "https://api.unsplash.com/users/senjuti/followers"
+            },
+            "profile_image": {
+                "small": "https://images.unsplash.com/profile-fb-1502484703-2ed7d267d120.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=32&w=32&s=9a4a5fea62770653050385349ab78c5c",
+                "medium": "https://images.unsplash.com/profile-fb-1502484703-2ed7d267d120.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=64&w=64&s=675511a54a699defb7cb6b1df60f79b2",
+                "large": "https://images.unsplash.com/profile-fb-1502484703-2ed7d267d120.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=c794974bebe8d6da41dc03ba2eeeb51b"
+            },
+            "total_likes": 0,
+            "total_photos": 8,
+            "total_collections": 0
+        },
+        "current_user_collections": [],
+        "slug": null,
+        "location": {
+            "title": "Jeanne Mance Park, Montreal, Canada",
+            "name": "Jeanne Mance Park",
+            "city": "Montreal",
+            "country": "Canada",
+            "position": {
+                "latitude": 45.5016889,
+                "longitude": -73.567256
+            }
+        },
+        "exif": {
+            "make": "Nikon",
+            "model": "NIKON D90",
+            "exposure_time": "1/4000",
+            "aperture": "2",
+            "focal_length": "50",
+            "iso": 100
+        },
+        "views": 1535171,
+        "downloads": 22432
+    };
+      dispatch({ type: PHOTO_FETCH_START });
+      dispatch(fetchPhotosSuccess(exampleData));
+      // unsplash.collections.getCollectionPhotos(collectionId, 1, 10, 'oldest')
+      //   .then(toJson)
+      //   .then(json => {
+      //       dispatch(fetchPhotosSuccess(json));
+      // });
+    }
+  }
+  
+  export function fetchPhotoSuccess(data) {
+    return {
+      type: PHOTO_FETCH_SUCCESS,
+      payload: data
+    };
+  }
+  
+  export function fetchPhotoError(error) {
+    return {
+      type: PHOTO_FETCH_ERROR,
+      payload: error
+    };
+  }
