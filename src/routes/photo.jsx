@@ -40,7 +40,7 @@ class Photo extends React.Component {
         <img src={currentPhoto.urls.full} style={imgStyle} onClick={this.onImgClick.bind(this)} alt="img" />
         <div>
           <p>Autor: {user.name}</p>
-          <p>Miejsce wykonania: {location.country}</p>
+          <p>Miejsce wykonania: {(location && location.country) ? location.country : 'N/D'}</p>
           <p>Pobrano {downloads} razy</p>
           <p>Polubiono {likes} razy</p>
           <p>Wyświetlono {views} razy</p>

@@ -35,7 +35,7 @@ class PhotoListItem extends React.Component {
             <div>
               <p>Pobrano: {photodetails ? photodetails.downloads : '???'}</p>
               <p>Like'ów: {likes}</p>
-              <p>Państwo: {photodetails ? photodetails.location.country : '???'}</p>
+              <p>Państwo: {(photodetails && photodetails.location && photodetails.location.country) ? photodetails.location.country : '???'}</p>
             </div>
           </div>
         </div>
