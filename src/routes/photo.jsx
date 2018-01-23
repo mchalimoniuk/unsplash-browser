@@ -28,7 +28,6 @@ class Photo extends React.Component {
     if(!currentPhoto) {
       return 'Wczytywanie...';
     }
-    console.log(currentPhoto);
 
     const { downloads, likes, location, views, user } = currentPhoto;
     let imgStyle = { width: '100%', maxHeight: 99999, cursor: 'zoom-out' };

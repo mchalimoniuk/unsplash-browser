@@ -678,11 +678,11 @@ export function fetchPhoto(photoId) {
     };
       dispatch({ type: PHOTO_FETCH_START });
       dispatch(fetchPhotoSuccess(exampleData));
-      // unsplash.collections.getCollectionPhotos(collectionId, 1, 10, 'oldest')
-      //   .then(toJson)
-      //   .then(json => {
-      //       dispatch(fetchPhotosSuccess(json));
-      // });
+    //   unsplash.photos.getPhoto(photoId)
+    //     .then(toJson)
+    //     .then(json => {
+    //         dispatch(fetchPhotoSuccess(json));
+    //   });
     }
   }
   
