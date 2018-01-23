@@ -18,9 +18,9 @@ class SectionListItem extends React.Component {
       total_photos,
       updated_at,
       preview_photos,
-      user: { username }
+      user
     } = this.props.collection;
-    // console.log(this.props.collection);
+    console.log(this.props.collection);
     
     return (
       <div className="card my-4 ">
@@ -31,7 +31,7 @@ class SectionListItem extends React.Component {
           <Link to={`/collections/${id}`}>
             <h4 className="card-title" style={{ marginBottom: 0 }}><strong>{title}</strong></h4>
           </Link>
-          <h6 style={{ marginBottom: 15 }}>{username}</h6>
+          <h6 style={{ marginBottom: 15 }}>{user.name}</h6>
           <p className="card-text">{description ? description : 'Brak opisu'}</p>
         </div>
       </div>
