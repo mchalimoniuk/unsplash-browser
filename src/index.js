@@ -12,7 +12,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
-const store = createStoreWithMiddleware(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStoreWithMiddleware(reducers);
 
 ReactDOM.render(
   <Provider store={store}>
