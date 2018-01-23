@@ -16,9 +16,9 @@ class FacebookShare extends React.Component {
       <div>
         <iframe
           src={srcString}
-          width="100%"
-          height="80"
-          style={{ border: 'none', overflow: 'hidden' }}
+          width={300}
+          height={50}
+          style={{ border: 'none', overflow: 'hidden', margin: '0 auto' }}
           scrolling="no"
           frameBorder="0"
          />
