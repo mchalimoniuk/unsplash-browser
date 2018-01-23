@@ -18,14 +18,14 @@ class SectionListItem extends React.Component {
       total_photos,
       updated_at,
       preview_photos,
-      user
+      user,
+      latestPhotos
     } = this.props.collection;
-    console.log(this.props.collection);
     
     return (
       <div className="card my-4 ">
         <div className="view overlay hm-white-slight">
-          <CollectionImgPreview images={preview_photos} />
+          <CollectionImgPreview images={latestPhotos} />
         </div>
         <div className="card-body text-center">
           <Link to={`/collections/${id}`}>

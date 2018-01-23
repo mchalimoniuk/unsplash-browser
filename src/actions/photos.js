@@ -10,7 +10,7 @@ import {
   PHOTO_FETCH_ERROR
 } from "../constants/ActionTypes";
 
-export function fetchPhotos(collectionId, page, order = 'latest') {
+export function fetchPhotos(collectionId, page = 1, order = 'latest') {
   return function(dispatch) {
     const exampleData = [
       {
@@ -584,7 +584,7 @@ export function fetchPhotos(collectionId, page, order = 'latest') {
     // unsplash.collections.getCollectionPhotos(collectionId, page, 10, order)
     //   .then(toJson)
     //   .then(json => {
-    //       dispatch(fetchPhotosSuccess(json));
+        //   dispatch(fetchPhotosSuccess(json));
     // });
   }
 }

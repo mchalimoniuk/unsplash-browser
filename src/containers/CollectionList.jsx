@@ -22,7 +22,6 @@ class SectionList extends React.Component {
   }
 
   render() {
-    console.log(this.props.collections);
     if(!this.props.collections) {
       return <div>Wczytywanie...</div>;
     }

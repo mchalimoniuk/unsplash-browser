@@ -28,6 +28,10 @@ class CollectionImgPreview extends React.Component {
   }
 
   render() {
+    if(!this.props.images) {
+      return 'Wczytywanie miniatur...';
+    }
+
     return (
       <div className='container'>
         <div className='row'>
