@@ -29,7 +29,8 @@ export default function(state = { dict: {} }, action) {
       collectionsDict[collectionId].latestPhotos = json;
       return { ...state, dict: collectionsDict };
     }
+    default: {
+      return state;
+    }
   }
-
-  return state;
 }

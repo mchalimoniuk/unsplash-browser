@@ -37,7 +37,7 @@ class Photo extends React.Component {
     
     return (
       <div className="container">
-        <img src={currentPhoto.urls.full} style={imgStyle} onClick={this.onImgClick.bind(this)} />
+        <img src={currentPhoto.urls.full} style={imgStyle} onClick={this.onImgClick.bind(this)} alt="img" />
         <div>
           <p>Autor: {user.name}</p>
           <p>Miejsce wykonania: {location.country}</p>

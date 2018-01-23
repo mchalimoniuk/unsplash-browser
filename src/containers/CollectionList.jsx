@@ -6,11 +6,6 @@ import CollectionListItem from '../components/CollectionListItem';
 
 
 class SectionList extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    
-  }
-
   componentDidMount() {
     this.props.fetchFeaturedCollections();
   }

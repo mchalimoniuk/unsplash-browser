@@ -29,13 +29,15 @@ class PhotoList extends React.Component {
   loadMore(page) {
     if(!this.props.fetching) {
       const sortOrder = this.sortSelect.value;
+      const { pageCount } = this.state;
       if(page === 0) {
         this.props.fetchPhotos(this.props.collectionId, 1, sortOrder);
         this.setState({ pageCount: 1 });
         return;
       }
-
-      this.props.fetchPhotos(this.props.collectionId, ++this.state.pageCount, sortOrder);
+      
+      this.props.fetchPhotos(this.props.collectionId, pageCount + 1, sortOrder);
+      this.setState({ pageCount: pageCount + 1 });
     }
   }
 

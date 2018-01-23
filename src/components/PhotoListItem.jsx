@@ -1,16 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import CollectionImgPreview from './CollectionImgPreview';
-
 import './PhotoListItem.css';
 
 class PhotoListItem extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    
-  }
-
   onPhotoClick() {
     const { id } = this.props.photo;
     this.props.history.push(`/photos/${id}`);

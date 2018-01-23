@@ -5,19 +5,11 @@ import CollectionImgPreview from './CollectionImgPreview';
 
 
 class SectionListItem extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    
-  }
-
   render() {
     const {
       id,
       title,
       description,
-      total_photos,
-      updated_at,
-      preview_photos,
       user,
       latestPhotos
     } = this.props.collection;

@@ -2,11 +2,6 @@ import React from 'react';
 
 
 class FacebookShare extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    
-  }
-
   render() {
     const { shareurl } = this.props;
     const encodedUrl = encodeURIComponent(shareurl);
@@ -15,6 +10,7 @@ class FacebookShare extends React.Component {
     return (
       <div>
         <iframe
+          title='FBShareBtns'
           src={srcString}
           width={300}
           height={50}

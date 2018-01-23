@@ -2,11 +2,6 @@ import React from 'react';
 
 
 class CollectionImgPreview extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    
-  }
-
   renderImages() {
     return this.props.images.map(image => {
       const style = {

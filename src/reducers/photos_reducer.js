@@ -35,7 +35,8 @@ export default function(state = { data: [], singleDict: {} }, action) {
     case PHOTO_FETCH_ERROR: {
       return {  ...state, singlePending: false };
     }
+    default: {
+      return state;
+    }
   }
-
-  return state;
 }
