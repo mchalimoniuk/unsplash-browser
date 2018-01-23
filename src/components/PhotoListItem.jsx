@@ -23,7 +23,6 @@ class PhotoListItem extends React.Component {
     } = this.props.photo;
 
     const { photodetails } = this.props;
-    console.log(photodetails);
 
     const style = {
       position: 'relative',
