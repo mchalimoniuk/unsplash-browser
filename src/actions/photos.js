@@ -11,7 +11,6 @@ import {
 } from "../constants/ActionTypes";
 
 export function fetchPhotos(collectionId, page, order = 'latest') {
-  console.log(collectionId, page, order);
   return function(dispatch) {
     const exampleData = [
       {
@@ -582,7 +581,7 @@ export function fetchPhotos(collectionId, page, order = 'latest') {
     }
 
     dispatch(fetchPhotosSuccess(exampleData));
-    // unsplash.collections.getCollectionPhotos(collectionId, 1, 10, 'oldest')
+    // unsplash.collections.getCollectionPhotos(collectionId, page, 10, order)
     //   .then(toJson)
     //   .then(json => {
     //       dispatch(fetchPhotosSuccess(json));

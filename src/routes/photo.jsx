@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import FacebookShare from '../components/FacebookShare';
+
 import { fetchPhoto } from '../actions/photos';
 import '../assets/css/photoRoute.css';
 
@@ -29,10 +31,10 @@ class Photo extends React.Component {
       return 'Wczytywanie...';
     }
 
-    const { downloads, likes, location, views, user } = currentPhoto;
+    const { downloads, likes, location, views, user, links } = currentPhoto;
     let imgStyle = { width: '100%', maxHeight: 99999, cursor: 'zoom-out' };
     if(!this.state.fullWidth) imgStyle = {};
-
+    
     return (
       <div className="container">
         <img src={currentPhoto.urls.full} style={imgStyle} onClick={this.onImgClick.bind(this)} />
@@ -43,6 +45,7 @@ class Photo extends React.Component {
           <p>Polubiono {likes} razy</p>
           <p>Wyświetlono {views} razy</p>
         </div>
+        <FacebookShare shareurl={links.html} />
       </div>
     );
   }
