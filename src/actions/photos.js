@@ -677,7 +677,7 @@ export function fetchPhoto(photoId) {
         "downloads": 22432
     };
       dispatch({ type: PHOTO_FETCH_START });
-      dispatch(fetchPhotosSuccess(exampleData));
+      dispatch(fetchPhotoSuccess(exampleData));
       // unsplash.collections.getCollectionPhotos(collectionId, 1, 10, 'oldest')
       //   .then(toJson)
       //   .then(json => {
