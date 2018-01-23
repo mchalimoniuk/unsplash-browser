@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import PhotoRoute from '../routes/photo';
 import CollectionRoute from '../routes/collection';
 import CollectionsRoute from '../routes/collections';
+import AboutRoute from '../routes/about';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
@@ -21,6 +22,7 @@ class App extends Component {
           <Route exact path='/' component ={CollectionsRoute} />
           <Route path='/collections/:id' component ={CollectionRoute} />
           <Route path='/photos/:id' component ={PhotoRoute} />
+          <Route path='/about' component ={AboutRoute} />
         </Switch>
       </div>
     );
