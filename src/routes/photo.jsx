@@ -28,13 +28,22 @@ class Photo extends React.Component {
     if(!currentPhoto) {
       return 'Wczytywanie...';
     }
+    console.log(currentPhoto);
 
-    let imgStyle = { width: '100%', maxHeight: 99999 };
+    const { downloads, likes, location, views, user } = currentPhoto;
+    let imgStyle = { width: '100%', maxHeight: 99999, cursor: 'zoom-out' };
     if(!this.state.fullWidth) imgStyle = {};
 
     return (
       <div className="container">
         <img src={currentPhoto.urls.full} style={imgStyle} onClick={this.onImgClick.bind(this)} />
+        <div>
+          <p>Autor: {user.name}</p>
+          <p>Miejsce wykonania: {location.country}</p>
+          <p>Pobrano {downloads} razy</p>
+          <p>Polubiono {likes} razy</p>
+          <p>Wyświetlono {views} razy</p>
+        </div>
       </div>
     );
   }
