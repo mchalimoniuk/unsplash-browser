@@ -2,6 +2,7 @@ import {
   PHOTOS_FETCH_START,
   PHOTOS_FETCH_SUCCESS,
   PHOTOS_FETCH_ERROR,
+  PHOTOS_DATA_RESET,
   PHOTO_FETCH_START,
   PHOTO_FETCH_SUCCESS,
   PHOTO_FETCH_ERROR
@@ -18,6 +19,9 @@ export default function(state = { data: [], singleDict: {} }, action) {
     }
     case PHOTOS_FETCH_ERROR: {
       return {  ...state, pending: false };
+    }
+    case PHOTOS_DATA_RESET: {
+      return {  ...state, data: [] };
     }
 
     case PHOTO_FETCH_START: {

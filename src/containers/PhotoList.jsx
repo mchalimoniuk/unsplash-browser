@@ -11,6 +11,7 @@ class PhotoList extends React.Component {
   constructor(props, context) {
     super(props, context);
     
+    this.state = { pageCount: 0 };
   }
 
   componentDidMount() {
@@ -25,10 +26,21 @@ class PhotoList extends React.Component {
     });
   }
 
-  loadMore() {
+  loadMore(page) {
     if(!this.props.fetching) {
-      this.props.fetchPhotos(this.props.collectionId);
+      const sortOrder = this.sortSelect.value;
+      if(page === 0) {
+        this.props.fetchPhotos(this.props.collectionId, 1, sortOrder);
+        this.setState({ pageCount: 1 });
+        return;
+      }
+
+      this.props.fetchPhotos(this.props.collectionId, ++this.state.pageCount, sortOrder);
     }
+  }
+
+  onSortOrderChange() {
+    this.loadMore(0);
   }
 
   render() {
@@ -47,9 +59,9 @@ class PhotoList extends React.Component {
           <form className="">
             <div className="form-group">
               <label>Sorotowanie wg. </label>
-              <select className="form-control">
-                <option value="">Najnowsze</option>
-                <option value="">Najpopularniejsze</option>
+              <select className="form-control" ref={sortSelect => this.sortSelect = sortSelect} onChange={this.onSortOrderChange.bind(this)}>
+                <option value="latest">Najnowsze</option>
+                <option value="popular">Najpopularniejsze</option>
               </select>
             </div>
           </form>
@@ -69,7 +81,6 @@ class PhotoList extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.log(this.props);
   return {
     photos: state.photos.data,
     photoDetailDict: state.photos.singleDict,

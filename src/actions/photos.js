@@ -4,12 +4,14 @@ import {
   PHOTOS_FETCH_START,
   PHOTOS_FETCH_SUCCESS,
   PHOTOS_FETCH_ERROR,
+  PHOTOS_DATA_RESET,
   PHOTO_FETCH_START,
   PHOTO_FETCH_SUCCESS,
   PHOTO_FETCH_ERROR
 } from "../constants/ActionTypes";
 
-export function fetchPhotos(collectionId) {
+export function fetchPhotos(collectionId, page, order = 'latest') {
+  console.log(collectionId, page, order);
   return function(dispatch) {
     const exampleData = [
       {
@@ -572,8 +574,13 @@ export function fetchPhotos(collectionId) {
               "download_location": "https://api.unsplash.com/photos/n31JPLu8_Pw/download"
           }
       }
-  ];
+    ];
     dispatch({ type: PHOTOS_FETCH_START });
+    
+    if(page === 1) {
+        dispatch({ type: PHOTOS_DATA_RESET });
+    }
+
     dispatch(fetchPhotosSuccess(exampleData));
     // unsplash.collections.getCollectionPhotos(collectionId, 1, 10, 'oldest')
     //   .then(toJson)
