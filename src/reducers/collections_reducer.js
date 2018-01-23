@@ -4,7 +4,7 @@ import {
   FEATURED_COLLECTIONS_FETCH_ERROR
 } from "../constants/ActionTypes";
 
-export default function(state = {}, action) {
+export default function(state = { dict: {} }, action) {
   switch(action.type) {
     case FEATURED_COLLECTIONS_FETCH_START: {
       return {  ...state, pending: true };

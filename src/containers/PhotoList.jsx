@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroller';
 
 import { fetchPhotos } from '../actions/photos';
+import { fetchFeaturedCollections } from '../actions/collections';
 import PhotoListItem from '../components/PhotoListItem';
 
 
@@ -10,6 +11,13 @@ class PhotoList extends React.Component {
   constructor(props, context) {
     super(props, context);
     
+  }
+
+  componentDidMount() {
+    console.log(!this.props.collectionFetching, !this.props.collections[this.props.collectionId]);
+    if(!this.props.collectionFetching && !this.props.collections[this.props.collectionId]) {
+      this.props.fetchFeaturedCollections();
+    }
   }
 
   renderPhotos() {
@@ -26,14 +34,14 @@ class PhotoList extends React.Component {
 
   render() {
     const loader = <div className="loader" key={0}>Wczytywanie...</div>;
-    if(!this.props.photos) {
+    if(!this.props.collections || !this.props.photos || !this.props.collections[this.props.collectionId]) {
       return loader;
     }
 
     return (
       <div className="container">
       <div className="row" style={{ marginTop: 20, marginBottom: 30 }}>
-        <h1>People</h1>
+        <h1>{this.props.collections[this.props.collectionId].title}</h1>
       </div>
         <InfiniteScroll
           className="row"
@@ -49,10 +57,13 @@ class PhotoList extends React.Component {
 }
 
 function mapStateToProps(state) {
+  console.log(this.props);
   return {
     photos: state.photos.data,
-    fetching: state.photos.pending
+    fetching: state.photos.pending,
+    collections: state.collections.dict,
+    collectionFetching: state.collections.fetching
   };
 }
 
-export default connect(mapStateToProps, { fetchPhotos })(PhotoList);
+export default connect(mapStateToProps, { fetchPhotos, fetchFeaturedCollections })(PhotoList);

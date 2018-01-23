@@ -11,7 +11,7 @@ class Section extends React.Component {
   render() {
     return (
       <div>
-        <PhotoList collectionId={this.props.match.params.id}/>
+        <PhotoList collectionId={this.props.match.params.id} />
       </div>
     );
   }
