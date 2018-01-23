@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-const Navbar = ({ props }) => {
+const Navbar = (props) => {
+  const { pathname } = props.location
+  console.log(pathname);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -12,10 +14,10 @@ const Navbar = ({ props }) => {
 
       <div className="collapse navbar-collapse" id="navbarColor01">
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
+          <li className={'nav-item' + ( pathname === '/' ? ' active' : '' )}>
             <Link className="nav-link" to="/">Sekcje zdjęć</Link>
           </li>
-          <li className="nav-item">
+          <li className={'nav-item' + ( pathname === '/about' ? ' active' : '' )}>
             <Link className="nav-link" to="/about">O aplikacji</Link>
           </li>
         </ul>
@@ -24,4 +26,4 @@ const Navbar = ({ props }) => {
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);
