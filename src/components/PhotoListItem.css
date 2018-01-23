@@ -7,6 +7,7 @@
 
 .data-overlay:hover {
   opacity: 0.9;
+  cursor: pointer;
 }
 
 .data-overlay div {

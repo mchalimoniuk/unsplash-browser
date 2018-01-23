@@ -26,9 +26,9 @@ class PhotoListItem extends React.Component {
 
     const style = {
       position: 'relative',
-      float: 'left',
-      width:  250,
-      height: 250,
+      display: 'inline-block',
+      width:  270,
+      height: 270,
       backgroundPosition: '50% 50%',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
@@ -36,7 +36,7 @@ class PhotoListItem extends React.Component {
     };
     
     return (
-      <div className='col-sm' style={{ padding: 0, marginBottom: 20 }} >
+      <div className='col col-xs-12' style={{ padding: 0, marginBottom: 20 }} >
         <div style={style} >
           <div className='data-overlay' photoid={this.props.photo.id} onClick={this.onPhotoClick.bind(this)}>
             <div>
