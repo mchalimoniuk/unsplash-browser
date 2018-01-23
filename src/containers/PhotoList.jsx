@@ -14,7 +14,6 @@ class PhotoList extends React.Component {
   }
 
   componentDidMount() {
-    console.log(!this.props.collectionFetching, !this.props.collections[this.props.collectionId]);
     if(!this.props.collectionFetching && !this.props.collections[this.props.collectionId]) {
       this.props.fetchFeaturedCollections();
     }
