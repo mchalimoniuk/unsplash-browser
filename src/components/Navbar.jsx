@@ -3,7 +3,6 @@ import { Link, withRouter } from 'react-router-dom';
 
 const Navbar = (props) => {
   const { pathname } = props.location
-  console.log(pathname);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
