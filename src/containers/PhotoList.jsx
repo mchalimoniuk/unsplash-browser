@@ -21,7 +21,7 @@ class PhotoList extends React.Component {
 
   renderPhotos() {
     return this.props.photos.map(photo => {
-      return <PhotoListItem key={photo.id} photo={photo}/>;
+      return <PhotoListItem key={photo.id} photo={photo} photodetails={this.props.photoDetailDict[photo.id]} />;
     });
   }
 
@@ -59,6 +59,7 @@ function mapStateToProps(state) {
   console.log(this.props);
   return {
     photos: state.photos.data,
+    photoDetailDict: state.photos.singleDict,
     fetching: state.photos.pending,
     collections: state.collections.dict,
     collectionFetching: state.collections.fetching

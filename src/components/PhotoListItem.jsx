@@ -22,6 +22,9 @@ class PhotoListItem extends React.Component {
       likes
     } = this.props.photo;
 
+    const { photodetails } = this.props;
+    console.log(photodetails);
+
     const style = {
       position: 'relative',
       float: 'left',
@@ -38,9 +41,9 @@ class PhotoListItem extends React.Component {
         <div style={style} >
           <div className='data-overlay' photoid={this.props.photo.id} onClick={this.onPhotoClick.bind(this)}>
             <div>
-              <p>Pobrano: ???</p>
+              <p>Pobrano: {photodetails ? photodetails.downloads : '???'}</p>
               <p>Like'ów: {likes}</p>
-              <p>Państwo: ???</p>
+              <p>Państwo: {photodetails ? photodetails.location.country : '???'}</p>
             </div>
           </div>
         </div>
