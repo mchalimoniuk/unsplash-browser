@@ -54,10 +54,10 @@ class PhotoList extends React.Component {
     return (
       <div className="container">
       <div className="row" style={{ marginTop: 20, marginBottom: 30 }}>
-        <div className="col-sm-9">
+        <div className="col-md-9">
           <h1>{this.props.collections[this.props.collectionId].title}</h1>
         </div>
-        <div className="col-sm-3">
+        <div className="col-md-3">
           <form className="">
             <div className="form-group">
               <label>Sorotowanie wg. </label>
