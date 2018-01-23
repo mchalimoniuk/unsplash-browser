@@ -30,7 +30,9 @@ class SectionList extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          {this.renderSections.bind(this)()}
+          <div className="col-md-12">
+            {this.renderSections.bind(this)()}
+          </div>
         </div>
       </div>
     );

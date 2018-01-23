@@ -11,16 +11,16 @@ class CollectionImgPreview extends React.Component {
     return this.props.images.map(image => {
       const style = {
         position: 'relative',
-        float: 'left',
-        width:  200,
-        height: 200,
+        display: 'inline-block',
+        width:  150,
+        height: 150,
         backgroundPosition: '50% 50%',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundImage: `url(${image.urls.thumb})`
       };
       return (
-        <div key={image.id} className='col-sm' style={{ padding: 0 }} >
+        <div key={image.id} className='col' style={{ padding: 0 }} >
           <div style={style} ></div>
         </div>
       );
