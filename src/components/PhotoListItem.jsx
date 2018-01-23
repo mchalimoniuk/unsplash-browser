@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import CollectionImgPreview from './CollectionImgPreview';
 
@@ -9,6 +9,11 @@ class PhotoListItem extends React.Component {
   constructor(props, context) {
     super(props, context);
     
+  }
+
+  onPhotoClick() {
+    const { id } = this.props.photo;
+    this.props.history.push(`/photos/${id}`);
   }
 
   render() {
@@ -31,7 +36,7 @@ class PhotoListItem extends React.Component {
     return (
       <div className='col-sm' style={{ padding: 0, marginBottom: 20 }} >
         <div style={style} >
-          <div className='data-overlay'>
+          <div className='data-overlay' photoid={this.props.photo.id} onClick={this.onPhotoClick.bind(this)}>
             <div>
               <p>Pobrano: ???</p>
               <p>Like'ów: {likes}</p>
@@ -44,4 +49,4 @@ class PhotoListItem extends React.Component {
   }
 }
 
-export default PhotoListItem;
+export default withRouter(PhotoListItem);
